@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBeanController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     // Movement
     public float moveSpeed;
+    public float jumpForce;
     // Camera
     public float lookSensitivity; // Mouse Look Sensitivity
     public float maxLookX; //Lowest Down We Can Look
@@ -29,24 +30,42 @@ public class PlayerBeanController : MonoBehaviour
     void Update()
     {
         Move();
+        CamLook();
+        // Jump When spacebar is pressed
+        if(Input.GetButtonDown("Jump"))
+         Jump();
     }
     void Move()
     {
         float x = Input.GetAxis("Horizontal") * moveSpeed;
         float z = Input.GetAxis("Vertical") * moveSpeed;
 
-        rb.velocity = new Vector3(x, rb.velocity.y, z);
+        //face the direction of the camera
+        Vector3 dir = transform.right * x + transform.forward * z;
+        // Jump direction
+        dir.y = rb.velocity.y;
+        // Move in the direction of the camera
+        rb.velocity = dir;
 
+    }
+
+    void Jump()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        if(Physics.Raycast(ray, 1.1f))
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
     void CamLook()
     {
         float y = Input.GetAxis("Mouse X") * lookSensitivity;
-        rotX = Input.GetAxis("Mouse Y") * lookSensitivity;
+        rotX += Input.GetAxis("Mouse Y") * lookSensitivity;
         //Clamps the Camera up and down rotation
-        rotX + Mathf.Clamp(rotX, minLookX, maxLookX);
+        rotX = Mathf.Clamp(rotX, minLookX, maxLookX);
         // Apply Rotation To Camera
-        cam.transform.localRotation = Quaterion.Euler(-rotX,0,0);
-        transform.eulerAnglers += Vector3.up * y;
+        cam.transform.localRotation = Quaternion.Euler(-rotX,0,0);
+        transform.eulerAngles += Vector3.up * y;
         
     }
 }
