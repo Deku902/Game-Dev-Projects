@@ -19,7 +19,7 @@ public class Weapons : MonoBehaviour
 
    public float shootRate;
    private float lastShootTime;
-   private float isPlayer;
+   private bool isPlayer;
 
 void Awake()
 {
@@ -45,7 +45,7 @@ void Awake()
       lastShootTime = Time.time;
       curAmmo--;
 
-      GameObject bullet = Instatiante(bulletPrefab, muzzle.position, muzzle.rotation);
+      GameObject bullet = Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
 
       // set the velocity
       bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
