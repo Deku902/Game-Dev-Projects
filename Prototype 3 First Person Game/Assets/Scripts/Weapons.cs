@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapons : MonoBehaviour
 {
 
-   public GameObject bulletPrefab;
+   public ObjectPool bulletPool;
 
    public Transform muzzle;
 
@@ -45,7 +45,9 @@ void Awake()
       lastShootTime = Time.time;
       curAmmo--;
 
-      GameObject bullet = Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
+      GameObject bullet = bulletPool.GetObject();
+      bullet.transform.position = muzzle.position;
+      bullet.transform.rotation = muzzle.rotation;
 
       // set the velocity
       bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
