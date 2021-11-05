@@ -19,16 +19,16 @@ public class Enemy : MonoBehaviour
     public float xPathOffset;
 
 
-    private List<Vector1> path;
+    private List<Vector3> path;
 
-    private Weapon weapon;
+    private Weapons weapon;
     private GameObject target;
 
     // Start is called before the first frame update
     void Start()
     {
           //Gather Components
-          weapon = GetComponents<weapon>();
+          weapon = GetComponent<Weapons>();
           target = FindObjectOfType<PlayerController>().gameObject;
 
           InvokeRepeating("UpdatePath", 0.0f, 0.5f);
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         // Move towards the closest path
         transform.positition = Vector3.MoveTowards(transform.postition, path[0] + new Vector3(0, yPathOffset, 0), moveSpeed * Time.deltaTime);
          
-         if(transform,postition == path[0] + new Vector3(0, yPathOffset, 0))
+         if(transform.postition == path[0] + new Vector3(0, yPathOffset, 0));
             path.RemoveAt[0];
     }
     // Update is called once per frame

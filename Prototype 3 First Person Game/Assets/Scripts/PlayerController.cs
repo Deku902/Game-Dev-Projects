@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Movement
+    [Header("Movement")]
     public float moveSpeed;
     public float jumpForce;
-    // Camera
+    [Header("Camera")]
     public float lookSensitivity; // Mouse Look Sensitivity
     public float maxLookX; //Lowest Down We Can Look
     public float minLookX; //Highest up We Can look
     private float rotX; //Current X Rotation of the Camera
-    // GameObjects and Components
+    [Header("GameObjects and Components")]
     private Camera cam;
     private Rigidbody rb;
     private Weapons weapons;
-
+    
+    [Header("Stats")]
     void Awake()
     {
         //Get The Components
@@ -29,6 +30,17 @@ public class PlayerController : MonoBehaviour
         
 
     
+public void TakeDamage(int damage)
+{
+    curHP -= damage;
+    if(curHP <= 0)
+        Die();
+}
+
+void Die()
+{
+
+}
 
     // Update is called once per frame
     void Update()
