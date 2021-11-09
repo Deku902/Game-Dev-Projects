@@ -36,6 +36,6 @@ public class BeanBullet : MonoBehaviour
     void Update()
     {
         if(lifeTime.time - shootTime >= lifeTime)
-        gameObject.getAction(false);
+        GameObject.getAction(false);
     }
 }

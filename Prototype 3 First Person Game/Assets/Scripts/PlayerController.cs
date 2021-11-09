@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     [Header("Movement")]
     public float moveSpeed;
     public float jumpForce;
@@ -17,7 +18,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Weapons weapons;
     
-    [Header("Stats")]
+    [Header("stats")]
+    public int curHP;
+    public int maxHP;
+
+
+   
+    
     void Awake()
     {
         //Get The Components
