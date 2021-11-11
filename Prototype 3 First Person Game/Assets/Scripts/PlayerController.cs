@@ -34,20 +34,7 @@ public class PlayerController : MonoBehaviour
         // Disable Curser
         Cursor.lockState = CursorLockMode.Locked;
     }
-        
 
-    
-public void TakeDamage(int damage)
-{
-    curHP -= damage;
-    if(curHP <= 0)
-        Die();
-}
-
-void Die()
-{
-
-}
 
     // Update is called once per frame
     void Update()
@@ -97,5 +84,28 @@ void Die()
         cam.transform.localRotation = Quaternion.Euler(-rotX,0,0);
         transform.eulerAngles += Vector3.up * y;
         
+    }
+
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        
+        if(curHP <= 0) 
+            Die();
+    }
+
+    void Die()
+    {
+        print("You have been BEANED!!! Game Over");
+    }
+
+     public void GiveHealth (int amountToGive)
+    {
+        curHP = Mathf.Clamp(curHP + amountToGive, 0, maxHP);
+    }
+
+    public void GiveAmmo (int amountToGive)
+    {
+        weapons.curAmmo = Mathf.Clamp(weapons.curAmmo + amountToGive, 0, weapons.maxAmmo);
     }
 }

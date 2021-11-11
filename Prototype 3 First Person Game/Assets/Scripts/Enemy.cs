@@ -78,4 +78,17 @@ public class Enemy : MonoBehaviour
             ChaseTarget();
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        
+        if(curHP <= 0) 
+            Die();
+    }
+
+    void Die()
+    {
+        
+    }
 }

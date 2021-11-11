@@ -27,7 +27,7 @@ public class BeanBullet : MonoBehaviour
               other.GetComponent<PlayerController>().TakeDamage(damage);
         else
               if(other.CompareTag("Enemy"))
-              other.GetComponent<Enemy>().TakeDamage(damage);
+              other.GetComponent<Enemy>(). TakeDamage(damage);
               //disable Bullet
               gameObject.SetActive(false);
      }
@@ -35,7 +35,7 @@ public class BeanBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lifeTime.time - shootTime >= lifeTime)
-        GameObject.getAction(false);
+        if(Time.time - shootTime >= lifeTime)
+           gameObject.SetActive(false);
     }
 }
