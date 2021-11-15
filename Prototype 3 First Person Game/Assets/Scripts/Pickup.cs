@@ -17,6 +17,7 @@ public class Pickup : MonoBehaviour
     public float rotationSpeed;
     public float bobSpeed;
     public float bobHeight;
+    private bool bobbingUp;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,9 @@ public class Pickup : MonoBehaviour
         //Rotating
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
 
-        //
-        Vector3 offset = (bobbingUp == true ? new Vector3(0,bobHeight))
+        // 
+        Vector3 offset = (bobbingUp == true ? new Vector3(0, bobHeight / 2, 0) : new Vector3(0, -bobHeight / 2, 0));
+
+        
     }
 }

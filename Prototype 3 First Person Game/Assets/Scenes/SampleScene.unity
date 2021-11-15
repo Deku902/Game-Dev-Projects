@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,7 +829,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 31.1
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -855,8 +855,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.029999971, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.010101}
+  m_LocalPosition: {x: 0.15, y: 0.08, z: -0.02}
+  m_LocalScale: {x: 1.03, y: 1, z: 1.010101}
   m_Children:
   - {fileID: 1119028806}
   m_Father: {fileID: 1726754775}
@@ -919,7 +919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119028805}
   m_LocalRotation: {x: 0.7085475, y: -0.013244938, z: -0.0028750987, w: 0.7055331}
-  m_LocalPosition: {x: 0.5, y: -0.059999943, z: 0.31999993}
+  m_LocalPosition: {x: 0.38, y: -0.059999943, z: 0.31999993}
   m_LocalScale: {x: 0.29787007, y: 0.61185503, z: 0.29787013}
   m_Children:
   - {fileID: 1007575635}
