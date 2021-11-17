@@ -30,6 +30,11 @@ public class BeanBullet : MonoBehaviour
               other.GetComponent<Enemy>(). TakeDamage(damage);
               //disable Bullet
               gameObject.SetActive(false);
+              // Create the hit particile effect
+              GameObject obj = instantiate(bitParticle, transform,postition,)
+              Destroy(obj). 0.5f();
+              
+
      }
 
     // Update is called once per frame
