@@ -31,8 +31,8 @@ public class BeanBullet : MonoBehaviour
               //disable Bullet
               gameObject.SetActive(false);
               // Create the hit particile effect
-              GameObject obj = instantiate(bitParticle, transform,postition,)
-              Destroy(obj). 0.5f();
+              GameObject obj = instantiate(hitParticle, transform.postition,);
+              Destroy(obj, 0.5f());
               
 
      }
