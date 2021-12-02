@@ -8,6 +8,8 @@ public class BeanBullet : MonoBehaviour
     public float lifeTime;
     private float shootTime;
 
+    public GameObject hitParticle;
+
     void onEnable()
     {
         shootTime = Time.time;
@@ -31,8 +33,9 @@ public class BeanBullet : MonoBehaviour
               //disable Bullet
               gameObject.SetActive(false);
               // Create the hit particile effect
-              GameObject obj = instantiate(hitParticle, transform.postition,);
-              Destroy(obj, 0.5f());
+              GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+              //Destroy Hit Particle
+              Destroy(obj, 0.5f);
               
 
      }
