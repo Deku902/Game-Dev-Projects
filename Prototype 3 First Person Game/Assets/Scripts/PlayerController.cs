@@ -92,20 +92,24 @@ public class PlayerController : MonoBehaviour
         
         if(curHP <= 0) 
             Die();
+
+        GameUI.instance.UpdateHealthBar(curHP, maxHP);
     }
 
     void Die()
     {
-        print("You have been BEANED!!! Game Over");
+        
     }
 
      public void GiveHealth (int amountToGive)
     {
         curHP = Mathf.Clamp(curHP + amountToGive, 0, maxHP);
+        GameUI.instance.UpdateHealthBar(curHP, maxHP);
     }
 
     public void GiveAmmo (int amountToGive)
     {
         weapons.curAmmo = Mathf.Clamp(weapons.curAmmo + amountToGive, 0, weapons.maxAmmo);
+        GameUI.instance.UpdateAmmoText(weapon.curammo, weapon.maxAmmo);
     }
 }

@@ -68,7 +68,7 @@ public class GameUI : MonoBehaviour
 
     public void OnResumeButton()
     {
-        SceneManager.LoadScene("Game");
+        GameManager.LoadScene("Game")
     }
 
     public void 

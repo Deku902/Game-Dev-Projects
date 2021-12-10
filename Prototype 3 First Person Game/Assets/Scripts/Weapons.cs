@@ -42,6 +42,7 @@ void Awake()
 
     public void Shoot()
     {
+
       lastShootTime = Time.time;
       curAmmo--;
 
@@ -51,6 +52,9 @@ void Awake()
 
       // set the velocity
       bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+        
+       if(isPlayer)
+        GameUI.instance.UpdateAmmotext(curAmmo, maxAmmo)
     }
     // Start is called before the first frame update
     void Start()

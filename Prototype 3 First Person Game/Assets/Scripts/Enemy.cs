@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        
+        rb.constraints = RigidbodyConstraints.None;
+        GameManager.instance.AddScore(scoreToGive);
     }
 }
