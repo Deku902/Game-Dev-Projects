@@ -23,13 +23,13 @@ void awake()
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(input.GetButton("Cancel"))
+        if(Input.GetButton("Cancel"))
         {
             TogglePauseGame();
         }
@@ -41,6 +41,9 @@ void awake()
 
     //Toggle Pause Menu
     GameUI.instance.TogglePauseMenu(gamePaused);
+
+    //Toggle Mouse Curser
+    Cursor.lockState = gamePaused == true ? CursorLockMode.None : CursorLockMode.Locked;
      
 }
 
@@ -49,18 +52,26 @@ void awake()
        curScore += score;
        
        //Update Score Text
-       GameUi.Instance.UpdateScoreText(curScore);
+       GameUI.instance.UpdateScoreText(curScore);
 
        //Have we reached the score to win?
-       if(curScore >= socreToWin)
+       if(curScore >= scoreToWin)
            WinGame();
    }
 
 
-   public void WinGame();
+   void WinGame()
    {
-       //Set endgame screen
-       GameUI.instance.SetEndGameScreen(true,curScore);
+       //Set win screen
+       GameUI.instance.SetEndGameScreen(true, curScore);
+   }
+
+   public void LoseGame()
+   {
+       //set the end game screen
+       GameUI.instance.GetEndGameScreen(false, curScore);
+       Time.timeScale = 0.0f;
+       gamePaused = true;
    }
 }
 

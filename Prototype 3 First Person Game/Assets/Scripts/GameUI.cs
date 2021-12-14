@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagment;
+using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
     [Header("hud")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI ammoText;
-    public Image healthBarFill
+    public Image healthBarFill;
 
-   [Header("PauseMenu")]
+    //Pause Menu
+
     public GameObject pauseMenu;
 
     [Header("End Game Screen")]
@@ -62,16 +63,20 @@ public class GameUI : MonoBehaviour
     {
         endGameScreen.SetActive(true);
         endGameHeaderText.text = won == true ? "You win, Eat taco bell like a king " : "You lose, No taco bell for you filty pesent";
-        endGameHeaderText.Color = won == true ? Color.brown : Color.red;
+        endGameHeaderText.color = won == true ? Color.green : Color.red;
         endGameScoreText.text = "<b>Score</b>\n" + score;
     }
 
     public void OnResumeButton()
     {
-        GameManager.LoadScene("Game")
+        GameManager.instance.TogglePauseGame();
     }
 
-    public void 
-
-
+    public void OnRestartButton()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }
+    
+
+    

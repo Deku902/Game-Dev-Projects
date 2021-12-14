@@ -35,10 +35,21 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-
+    void Start()
+    {
+        //inishulize The UI
+        GameUI.instance.UpdateHealthBar(curHP, maxHP);
+        GameUI.instance.UpdateScoreText(0);
+        GameUI.instance.UpdateAmmotext(weapons.curAmmo, weapons.maxAmmo);
+    }
+        
     // Update is called once per frame
     void Update()
     {
+        //Don't Do Anything when the game is paused
+        if(GameManager.instance.gamePaused == true)
+           return;
+
         Move();
         CamLook();
         // Jump When spacebar is pressed
@@ -98,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
     void Die()
     {
-        
+        GameManager.instance.LoseGame();
     }
 
      public void GiveHealth (int amountToGive)
