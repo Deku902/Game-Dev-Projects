@@ -20,6 +20,9 @@ public class Weapons : MonoBehaviour
    public float shootRate;
    private float lastShootTime;
    private bool isPlayer;
+   public AudioClip shootSfx;
+   private AudioSource audioSource;
+
 
 void Awake()
 {
@@ -27,6 +30,7 @@ void Awake()
     if(GetComponent<PlayerController>())
     {
         isPlayer = true;
+        audioSource = GetComponent<audioSource>();
     }
 }
     public bool CanShoot()
@@ -42,6 +46,7 @@ void Awake()
 
     public void Shoot()
     {
+    audioSource. PlayOneShot(shootSfx);
 
       lastShootTime = Time.time;
       curAmmo--;
