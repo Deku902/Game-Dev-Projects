@@ -30,7 +30,7 @@ void Awake()
     if(GetComponent<PlayerController>())
     {
         isPlayer = true;
-        audioSource = GetComponent<audioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 }
     public bool CanShoot()

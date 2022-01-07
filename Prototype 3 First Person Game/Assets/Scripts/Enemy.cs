@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     private Weapons weapon;
     private GameObject target;
 
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +92,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         rb.constraints = RigidbodyConstraints.None;
+
         GameManager.instance.AddScore(scoreToGive);
     }
 }

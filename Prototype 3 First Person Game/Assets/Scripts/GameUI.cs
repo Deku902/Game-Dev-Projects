@@ -59,7 +59,7 @@ public class GameUI : MonoBehaviour
         pauseMenu.SetActive(paused);
     }
 
-    public void SetEngineGameScreen(bool won, int score)
+    public void GetEndGameScreen(bool won, int score)
     {
         endGameScreen.SetActive(true);
         endGameHeaderText.text = won == true ? "You win, Eat taco bell like a king " : "You lose, No taco bell for you filty pesent";

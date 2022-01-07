@@ -63,7 +63,7 @@ void awake()
    void WinGame()
    {
        //Set win screen
-       GameUI.instance.SetEndGameScreen(true, curScore);
+       GameUI.instance.GetEndGameScreen(true, curScore);
    }
 
    public void LoseGame()

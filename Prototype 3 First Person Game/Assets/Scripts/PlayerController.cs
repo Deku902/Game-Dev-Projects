@@ -121,6 +121,6 @@ public class PlayerController : MonoBehaviour
     public void GiveAmmo (int amountToGive)
     {
         weapons.curAmmo = Mathf.Clamp(weapons.curAmmo + amountToGive, 0, weapons.maxAmmo);
-        GameUI.instance.UpdateAmmoText(weapon.curammo, weapon.maxAmmo);
+        GameUI.instance.UpdateAmmotext(weapons.curAmmo, weapons.maxAmmo);
     }
 }
